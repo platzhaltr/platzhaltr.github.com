@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Website</title>
+   <meta name="author" content="Oliver Schrenk" />
+   <link href="http://platzhaltr.github.com/atom.xml" rel="alternate" title="platzhaltr" type="application/atom+xml" />
+
+   <!-- syntax highlighting CSS -->
+   <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="site">
+  <div class="title">
+    <a href="/">platzhaltr</a>
+    <a class="extra" href="/">home</a>
+  </div>
+  
+  <div id="post">
+<p><a href='http://github.com/'>GitHub</a> erlaubt das Veröffentlichen und hosten von statischen Webinhalten. Es wird eine Website für den Benutzer und für jedes Projekt unterstützt - natürlich alles über Git repositories.</p>
+
+<p>Eine Benutzerseite wird eingerichtet indem man einfach ein GitHub repository namens <code>benutzername.github.com</code> anlegt, dort eine <code>index.html</code> in den <code>master</code> branch pusht. Die Seite ist dann unter <code>benutzername.github.com/index.html</code> erreichbar<code>.</code></p>
+
+<p>Projektseiten funktionieren ein wenig anders. Dazu muss ein root branch im repository angelegt werden. Angenommen der Name des repositories ist <code>test</code>, dann</p>
+
+<pre><code>$ cd /pfad/zu/projekten/test
+$ git symbolic-ref HEAD refs/heads/gh-pages
+$ rm .git/index
+$ git clean -fdx</code></pre>
+
+<p>Das Arbeitsverzeichnist ist nun leer (keine Angst, das Projekt ist immer noch im <code>master</code><code>branch</code>). Inhalte, die nun im branch <code>gh-pages</code> angelegt werden werden dann auf GitHub veröffentlicht und sind dann unter <code>http://benutzername.github.com/test</code> erreichbar.</p>
+
+<pre><code>$ echo &quot;My GitHub Page&quot; &gt; index.html
+$ git add .
+$ git commit -a -m &quot;First pages commit&quot;
+$ git push origin gh-pages</code></pre>
+
+<p>Der Veröffentlichungsprozess kann in beiden Fällen ein paar Minuten in Anspruch nehmen.</p>
+
+<p>Über <code>html</code> Seiten hinaus unterstützt GitHub auch die Generierung von Inhalten mit Hilfe von <a href='http://wiki.github.com/mojombo/jekyll/install'>Jekyll</a>. Jede GitHub Seite wird durch die Jekyll Engine gejagt.</p>
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    
+      <li><span>29 Mar 2010</span> &raquo; <a href="/2010/03/29/services.html">Services</a></li>
+    
+      <li><span>28 Mar 2010</span> &raquo; <a href="/2010/03/28/der-grundstein.html">Der Grundstein</a></li>
+    
+  </ul>
+</div>              
+  
+  <div class="footer">
+    <div class="contact">
+      <p>
+        platzhaltr
+      </p>
+    </div>
+    <div class="contact">
+      <p>
+        <a href="http://github.com/platzhaltr/">github.com/platzhaltr</a><br />
+      </p>
+    </div>
+    <div class="rss">
+      <a href="http://github.com/platzhaltr/atom.xml">
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15527109-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>
